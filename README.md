@@ -1,57 +1,65 @@
-# User Management System (PHP puro)
+# User Management System (Pure PHP)
 
-Este projeto implementa um sistema simples de gerenciamento de usuários (CRUD) em PHP puro, sem frameworks e sem banco de dados relacional, utilizando apenas um arquivo JSON como persistência de dados.
+This project implements a simple user management system (CRUD) using **pure PHP**, without frameworks or relational databases.  
+Data persistence is handled through a **JSON file**.
 
-## ?? Estrutura
+---
 
+##  Project Structure
+
+```
 user-management/
-??? index.php # Frontend moderno
-??? Main.php # API / router de ações
-??? controllers/
-? ??? UsersController.php
-??? models/
-? ??? Users.php
-??? database/
-? ??? users.json # "Banco de dados" simulado
-??? assets/
-? ??? css/style.css # Estilos do frontend
-? ??? js/app.js # Scripts do frontend
-??? README.md
+ index.php              # Modern frontend
+ Main.php               # API / action router
+ controllers/
+    UsersController.php
+ models/
+    Users.php
+ database/
+    users.json         # Simulated "database"
+ assets/
+    css/style.css      # Frontend styles
+ js/app.js          # Frontend scripts
+    README.md
+```
 
-## ?? Como executar
+---
 
-1. Clone o repositório ou extraia o zip: git clone https://github.com/seu-usuario/user-management.git
+## How to Run
 
-2. Certifique-se de ter o PHP >= 8.0.30 instalado.
+1. Install Xampp with  **PHP >= 8.0.30** installed.
 
-3. Suba um servidor local com xampp 
+2. Clone the repository in htdocs folder (Xampp):
 
-4. Acesse no navegador: http://localhost:8000/index.php
+   git clone https://github.com/Filipe4010/user-management
 
-## ?? Funcionalidades
+3. Start a local server with **XAMPP** (or any other PHP server).
 
-1. Adicionar Usuário
+4. Open the system in your browser: http://localhost/user-management/
 
-Nome + Email (verificação de email único)
+---
 
-2. Editar Usuário
+## Features
 
-Atualização de nome ou email (email único garantido)
+1. **Add User**  
+   - Name + Email (unique email validation)
 
-3. Excluir Usuário
+2. **Edit User**  
+   - Update name or email (ensures email uniqueness)
 
-Exclusão física (remoção direta do arquivo JSON)
+3. **Delete User**  
+   - Physical removal (direct deletion from JSON file)
 
-4. Listar Usuários
+4. **List Users**  
+   - Interactive table view in the frontend
 
-Exibe todos em uma tabela interativa no frontend
+---
 
-## ?? Restrições atendidas
+## Requirements 
 
-1. PHP puro, sem frameworks
+1. Pure PHP (no frameworks)  
+2. Data persistence using only `users.json`  
+3. Manual CRUD implementation  
+4. Layered structure (simplified MVC)  
 
-2. Persistência apenas em users.json
-
-3. CRUD implementado manualmente
-
-4. Estrutura em camadas (MVC simplificado)
+---
