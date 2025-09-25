@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userForm = document.getElementById('userForm');
     const userIdInput = document.getElementById('userId');
     const modalTitle = document.getElementById('modalTitle');
+    const formError = document.getElementById('formError');
 
     const fetchUsers = async () => {
         const res = await fetch('Main.php?action=list');
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = 'Add User';
         userForm.reset();
         userIdInput.value = '';
+        formError.textContent = '';
     };
 
     closeModal.onclick = () => modal.style.display = 'none';
@@ -40,17 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const action = id ? 'update' : 'create';
+
         const res = await fetch(`Main.php?action=${action}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id=${id}&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
         });
+
         const data = await res.json();
         if (data.success) {
             modal.style.display = 'none';
             fetchUsers();
         } else {
-            alert('Error: Email already exists!');
+            formError.textContent = data.message || 'Unexpected error';
         }
     });
 
@@ -60,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userIdInput.value = id;
         document.getElementById('name').value = name;
         document.getElementById('email').value = email;
+        formError.textContent = '';
     };
 
     window.deleteUser = async (id) => {
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const data = await res.json();
             if (data.success) fetchUsers();
+            else alert(data.message || 'Delete failed');
         }
     };
 

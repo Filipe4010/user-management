@@ -1,7 +1,3 @@
-<?php
-header('Content-Type: text/html; charset=utf-8');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +9,6 @@ header('Content-Type: text/html; charset=utf-8');
 </head>
 
 <body>
-
     <div class="container">
         <h1>User Management</h1>
         <button id="addUserBtn">Add User</button>
@@ -40,12 +35,13 @@ header('Content-Type: text/html; charset=utf-8');
                 <input type="hidden" id="userId">
                 <input type="text" id="name" placeholder="Name" required>
                 <input type="email" id="email" placeholder="Email" required>
+                <div id="formError" class="form-error"></div>
                 <button type="submit">Save</button>
             </form>
         </div>
     </div>
 
     <script src="assets/js/app.js"></script>
-
 </body>
+
 </html>
